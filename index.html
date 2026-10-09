@@ -32,26 +32,15 @@
       }
     }
   </script>
-  <style>
-    body {
-      background-color: #0b0f19;
-      color: #e2e8f0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .card-glass {
-      background: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .card-glass:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-  </style>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <!-- OpenGraph Metadata for Social Media -->
+  <meta property="og:title" content="DevOps & AI Automation Specialist | Portfolio">
+  <meta property="og:description" content="Xây dựng hạ tầng tự động hóa chịu tải cao 10.000+ tasks/ngày, tối ưu chi phí token AI đến 80% và đảm bảo uptime 99.9%.">
+  <meta property="og:image" content="assets/images/og-preview.svg">
+  <meta property="og:type" content="website">
+  <!-- Modular Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="selection:bg-cyan-500 selection:text-black">
 
@@ -1048,141 +1037,8 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE TAB CONTROLLER SCRIPT -->
-  <script>
-    function switchTab(tabId) {
-      // Ẩn tất cả panes
-      const panes = document.querySelectorAll('.tab-pane');
-      panes.forEach(pane => pane.classList.add('hidden'));
-
-      // Bỏ active của tất cả buttons
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('text-cyan-400', 'bg-cyan-500/10', 'border-cyan-500/30');
-        btn.classList.add('text-slate-400');
-      });
-
-      // Hiện pane được chọn
-      const activePane = document.getElementById('pane-' + tabId);
-      if (activePane) {
-        activePane.classList.remove('hidden');
-      }
-
-      // Kích hoạt button được chọn
-      const activeBtn = document.getElementById('btn-' + tabId);
-      if (activeBtn) {
-        activeBtn.classList.remove('text-slate-400');
-        activeBtn.classList.add('text-cyan-400', 'bg-cyan-500/10', 'border-cyan-500/30');
-      }
-    }
-
-    // FORM 1: NON-TECH BUSINESS INTAKE HANDLER
-    function sendIntakeMail() {
-      const clientName = document.getElementById('client_name').value.trim() || 'Khách hàng';
-      const projectName = document.getElementById('project_name').value.trim() || 'Dự án mới';
-      const clientContact = document.getElementById('client_contact').value.trim() || 'Chưa cung cấp';
-      const clientNotes = document.getElementById('client_notes').value.trim() || 'Không có ghi chú thêm.';
-
-      function getAnswer(name, otherRadioId, otherTextId) {
-        const el = document.querySelector(`input[name="${name}"]:checked`);
-        if (!el) return 'Chưa chọn';
-        if (el.id === otherRadioId) {
-          const customText = document.getElementById(otherTextId).value.trim();
-          return customText ? `[Lựa chọn khác] ${customText}` : '[Lựa chọn khác] (Chưa điền cụ thể)';
-        }
-        return el.value;
-      }
-
-      const q1 = getAnswer('scale', 'q1_other_radio', 'q1_other_text');
-      const q2 = getAnswer('sla', 'q2_other_radio', 'q2_other_text');
-      const q3 = getAnswer('data_sec', 'q3_other_radio', 'q3_other_text');
-      const q4 = getAnswer('ai_need', 'q4_other_radio', 'q4_other_text');
-      const q5 = getAnswer('auth', 'q5_other_radio', 'q5_other_text');
-      const q6 = getAnswer('budget', 'q6_other_radio', 'q6_other_text');
-      const q7 = getAnswer('timeline', 'q7_other_radio', 'q7_other_text');
-
-      const subject = `[Khảo sát Kiến trúc] Yêu cầu từ ${clientName} - Dự án ${projectName}`;
-
-      const body = `Kính gửi Chuyên gia DevOps & AI Automation (chientrantrong89@gmail.com),
-
-Tôi gửi thông tin khảo sát nhu cầu kiến trúc hệ thống như sau:
-
-==================================================
-1. THÔNG TIN KHÁCH HÀNG & DỰ ÁN:
-• Người đại diện: ${clientName}
-• Dự án / Doanh nghiệp: ${projectName}
-• Email / SĐT liên hệ: ${clientContact}
-
-==================================================
-2. KẾT QUẢ KHẢO SÁT NHU CẦU (FORM 1 - NON-TECH):
-1. Số lượng người dùng & Giao dịch hàng ngày:
-   → ${q1}
-
-2. Kỳ vọng Độ ổn định & Gián đoạn bảo trì (SLA):
-   → ${q2}
-
-3. Dữ liệu của Doanh nghiệp & Mức độ an toàn:
-   → ${q3}
-
-4. Nhu cầu Ứng dụng Trí tuệ Nhân tạo (AI):
-   → ${q4}
-
-5. Đăng nhập & Quản lý Phân quyền:
-   → ${q5}
-
-6. Ngân sách Máy chủ hàng tháng:
-   → ${q6}
-
-7. Thời hạn mong muốn Ra mắt (Timeline):
-   → ${q7}
-
-==================================================
-3. GHI CHÚ BỔ SUNG / BÀI TOÁN ĐẶC THÙ:
-${clientNotes}
-
-==================================================
-(Bản khảo sát gửi từ website portfolio: devops.ai)`;
-
-      const mailtoUrl = `mailto:chientrantrong89@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      // Hiển thị khung sao chép dự phòng
-      const statusBox = document.getElementById('intake-status');
-      const copyTextarea = document.getElementById('intake-copy-content');
-      if (statusBox && copyTextarea) {
-        copyTextarea.value = body;
-        statusBox.classList.remove('hidden');
-        statusBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      // Kích hoạt mở email client
-      window.location.href = mailtoUrl;
-    }
-
-    function copyIntakeContent() {
-      const copyTextarea = document.getElementById('intake-copy-content');
-      if (!copyTextarea) return;
-      navigator.clipboard.writeText(copyTextarea.value).then(() => {
-        const copyBtn = document.getElementById('btn-copy-intake');
-        if (copyBtn) {
-          const originalText = copyBtn.innerText;
-          copyBtn.innerText = '✓ Đã sao chép thành công!';
-          copyBtn.classList.remove('bg-cyan-500/20', 'text-cyan-300');
-          copyBtn.classList.add('bg-emerald-500/20', 'text-emerald-300');
-          setTimeout(() => {
-            copyBtn.innerText = originalText;
-            copyBtn.classList.add('bg-cyan-500/20', 'text-cyan-300');
-            copyBtn.classList.remove('bg-emerald-500/20', 'text-emerald-300');
-          }, 3000);
-        }
-      });
-    }
-
-    function resetIntakeForm() {
-      const form = document.getElementById('intake-form');
-      if (form) form.reset();
-      const statusBox = document.getElementById('intake-status');
-      if (statusBox) statusBox.classList.add('hidden');
-    }
-  </script>
+  <!-- MODULAR JAVASCRIPT MODULES -->
+  <script src="js/case-study-tabs.js"></script>
+  <script src="js/intake-form.js"></script>
 </body>
 </html>
