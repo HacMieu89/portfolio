@@ -1,0 +1,6 @@
+# robots.txt - Portfolio DevOps & AI Automation Specialist
+User-agent: *
+Allow: /
+
+# Sitemap definition (cập nhật URL thật khi trỏ domain)
+# Sitemap: https://yourusername.github.io/sitemap.xml
