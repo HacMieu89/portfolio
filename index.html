@@ -718,6 +718,15 @@
                   <strong class="text-slate-200">[D] Quy mô lớn / Toàn quốc:</strong> Hơn 1 triệu lượt truy cập mỗi ngày, phục vụ liên tục không ngừng nghỉ.
                 </span>
               </label>
+              <label for="q1_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q1_other_radio" name="scale" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[E] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q1_other_text" placeholder="Nhập quy mô cụ thể (ví dụ: 20k đơn/tháng, tập trung khung 8h-11h sáng)..."
+                  onfocus="document.getElementById('q1_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
+              </label>
             </div>
           </div>
 
@@ -749,6 +758,15 @@
                 <span>
                   <strong class="text-slate-200">[C] Hệ thống nội bộ công ty:</strong> Buổi tối và cuối tuần không dùng nên nếu bảo trì vài tiếng cũng không ảnh hưởng kinh doanh.
                 </span>
+              </label>
+              <label for="q2_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q2_other_radio" name="sla" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[D] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q2_other_text" placeholder="Nhập thời gian hoạt động/bảo trì riêng (ví dụ: chỉ chạy 8h-18h hàng ngày)..."
+                  onfocus="document.getElementById('q2_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
               </label>
             </div>
           </div>
@@ -782,6 +800,15 @@
                   <strong class="text-slate-200">[C] Dữ liệu nội dung lớn:</strong> Video, hình ảnh độ phân giải cao cần lưu trữ và truyền phát tốc độ cao cho khách xem.
                 </span>
               </label>
+              <label for="q3_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q3_other_radio" name="data_sec" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[D] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q3_other_text" placeholder="Nhập yêu cầu dữ liệu hoặc tiêu chuẩn bảo mật riêng (ví dụ: HIPAA, PCI-DSS)..."
+                  onfocus="document.getElementById('q3_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
+              </label>
             </div>
           </div>
 
@@ -813,6 +840,15 @@
                 <span>
                   <strong class="text-slate-200">[C] Chưa cần AI lúc này:</strong> Hiện tại chỉ cần phần mềm quản lý, website hoặc ứng dụng thông thường.
                 </span>
+              </label>
+              <label for="q4_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q4_other_radio" name="ai_need" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[D] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q4_other_text" placeholder="Nhập tính năng AI cụ thể (ví dụ: OCR hóa đơn đỏ, bot thoại tư vấn tự động)..."
+                  onfocus="document.getElementById('q4_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
               </label>
             </div>
           </div>
@@ -846,6 +882,15 @@
                   <strong class="text-slate-200">[C] Tích hợp tài khoản công ty có sẵn:</strong> Dùng chung tài khoản Microsoft Office 365 hoặc Google Workspace của doanh nghiệp (Single Sign-On).
                 </span>
               </label>
+              <label for="q5_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q5_other_radio" name="auth" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[D] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q5_other_text" placeholder="Nhập hình thức xác thực riêng (ví dụ: OTP qua SMS/Zalo, quét vân tay/khuôn mặt)..."
+                  onfocus="document.getElementById('q5_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
+              </label>
             </div>
           </div>
 
@@ -878,6 +923,15 @@
                   <strong class="text-slate-200">[C] Đầu tư máy chủ vật lý riêng tại công ty:</strong> Mua sắm phần cứng đặt tại văn phòng hoặc thuê chỗ đặt (Colocation) tại Trung tâm dữ liệu (Data Center).
                 </span>
               </label>
+              <label for="q6_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q6_other_radio" name="budget" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[D] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q6_other_text" placeholder="Nhập ngân sách dự kiến cụ thể hoặc đề xuất tài chính riêng của bạn..."
+                  onfocus="document.getElementById('q6_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
+              </label>
             </div>
           </div>
 
@@ -903,6 +957,15 @@
                 <span>
                   <strong class="text-slate-200">[B] Hoàn thiện trọn gói bài bản (1.5 - 3 tháng):</strong> Xây dựng đầy đủ toàn bộ tính năng và quy trình rồi mới chính thức vận hành.
                 </span>
+              </label>
+              <label for="q7_other_radio" class="flex flex-col sm:flex-row sm:items-center gap-2.5 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <div class="flex items-center gap-2 shrink-0">
+                  <input type="radio" id="q7_other_radio" name="timeline" value="other" class="accent-cyan-400">
+                  <span class="text-amber-300 font-semibold text-xs">[C] Nhu cầu khác:</span>
+                </div>
+                <input type="text" id="q7_other_text" placeholder="Nhập mốc thời gian riêng (ví dụ: cần demo trong 7 ngày để báo cáo sếp/nhà đầu tư)..."
+                  onfocus="document.getElementById('q7_other_radio').checked = true;"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors">
               </label>
             </div>
           </div>
@@ -1020,18 +1083,23 @@
       const clientContact = document.getElementById('client_contact').value.trim() || 'Chưa cung cấp';
       const clientNotes = document.getElementById('client_notes').value.trim() || 'Không có ghi chú thêm.';
 
-      function getRadioVal(name) {
+      function getAnswer(name, otherRadioId, otherTextId) {
         const el = document.querySelector(`input[name="${name}"]:checked`);
-        return el ? el.value : 'Chưa chọn';
+        if (!el) return 'Chưa chọn';
+        if (el.id === otherRadioId) {
+          const customText = document.getElementById(otherTextId).value.trim();
+          return customText ? `[Lựa chọn khác] ${customText}` : '[Lựa chọn khác] (Chưa điền cụ thể)';
+        }
+        return el.value;
       }
 
-      const q1 = getRadioVal('scale');
-      const q2 = getRadioVal('sla');
-      const q3 = getRadioVal('data_sec');
-      const q4 = getRadioVal('ai_need');
-      const q5 = getRadioVal('auth');
-      const q6 = getRadioVal('budget');
-      const q7 = getRadioVal('timeline');
+      const q1 = getAnswer('scale', 'q1_other_radio', 'q1_other_text');
+      const q2 = getAnswer('sla', 'q2_other_radio', 'q2_other_text');
+      const q3 = getAnswer('data_sec', 'q3_other_radio', 'q3_other_text');
+      const q4 = getAnswer('ai_need', 'q4_other_radio', 'q4_other_text');
+      const q5 = getAnswer('auth', 'q5_other_radio', 'q5_other_text');
+      const q6 = getAnswer('budget', 'q6_other_radio', 'q6_other_text');
+      const q7 = getAnswer('timeline', 'q7_other_radio', 'q7_other_text');
 
       const subject = `[Khảo sát Kiến trúc] Yêu cầu từ ${clientName} - Dự án ${projectName}`;
 
