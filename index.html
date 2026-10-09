@@ -67,6 +67,7 @@
         <a href="#case-study" class="hover:text-cyan-400 transition-colors">Case Study</a>
         <a href="#services" class="hover:text-cyan-400 transition-colors">Giải pháp</a>
         <a href="#skills" class="hover:text-cyan-400 transition-colors">Tech Stack</a>
+        <a href="#intake" class="hover:text-cyan-400 transition-colors">Khảo sát Nhu cầu</a>
       </div>
       <a href="#contact" class="px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-medium text-sm hover:bg-cyan-500 hover:text-slate-900 transition-all">
         Liên hệ hợp tác
@@ -95,8 +96,8 @@
         <a href="#case-study" class="px-6 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20">
           Xem Bản thiết kế Kiến trúc 10k/ngày →
         </a>
-        <a href="#services" class="px-6 py-3.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-200 font-semibold text-sm hover:border-slate-500 transition-all">
-          Khám phá dịch vụ
+        <a href="#intake" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/40 text-cyan-300 font-semibold text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all">
+          ⚡ Khảo sát Nhu cầu (Form 1)
         </a>
       </div>
 
@@ -632,6 +633,328 @@
     </div>
   </section>
 
+  <!-- FORM 1: NON-TECH BUSINESS INTAKE SECTION -->
+  <section id="intake" class="py-24 px-6 border-t border-slate-800/80 relative bg-slate-950/40">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-400 mb-4">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          FORM 1: DÀNH CHO KHÁCH HÀNG & DOANH NGHIỆP
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+          Khảo Sát Nhu Cầu <span class="gradient-text">Kiến Trúc & Báo Giá</span>
+        </h2>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Không cần kiến thức kỹ thuật phức tạp. Bạn chỉ cần tick chọn bài toán thực tế của mình (đã chọn sẵn các phương án tối ưu chi phí). Khi bấm <strong>"Gửi Khảo Sát"</strong>, hệ thống sẽ mở ứng dụng email và điền sẵn nội dung gửi tới chuyên gia.
+        </p>
+      </div>
+
+      <!-- Main Form Container -->
+      <form id="intake-form" class="space-y-8" onsubmit="event.preventDefault(); sendIntakeMail();">
+        
+        <!-- Contact Information Block -->
+        <div class="card-glass p-6 sm:p-8 rounded-2xl border border-slate-800">
+          <h3 class="text-base font-bold text-slate-200 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">01</span>
+            Thông Tin Khách Hàng / Dự Án
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1.5">Tên của bạn / Người đại diện *</label>
+              <input type="text" id="client_name" required placeholder="Ví dụ: Nguyễn Văn A"
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1.5">Tên Dự án / Công ty *</label>
+              <input type="text" id="project_name" required placeholder="Ví dụ: Nền tảng Bán lẻ & AI"
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1.5">Email hoặc SĐT liên hệ *</label>
+              <input type="text" id="client_contact" required placeholder="Ví dụ: contact@congty.com"
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-400 transition-colors">
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 Architecture Questions -->
+        <div class="space-y-6">
+
+          <!-- Question 1 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">1</span>
+                Số lượng người dùng & Giao dịch hàng ngày
+              </h4>
+              <span class="text-xs text-cyan-400 font-mono">Scale Sizing</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Ước tính số lượng khách hàng truy cập hoặc khối lượng công việc hệ thống cần phục vụ:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q1_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q1_a" name="scale" value="[A - Khuyến nghị] SME (10.000 - 50.000 tương tác/ngày)" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Doanh nghiệp vừa & nhỏ (SME):</strong> Khoảng vài nghìn đến vài chục nghìn lượt tương tác/ngày (Hệ thống chạy mượt, phản hồi tức thì).
+                </span>
+              </label>
+              <label for="q1_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q1_b" name="scale" value="[B] Dự án thử nghiệm MVP (< 1.000 người/ngày)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Dự án khởi đầu / Thử nghiệm (MVP):</strong> Dưới 1.000 người/ngày. Mục tiêu chính là đưa sản phẩm ra thị trường nhanh nhất.
+                </span>
+              </label>
+              <label for="q1_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q1_c" name="scale" value="[C] Doanh nghiệp tăng trưởng nhanh (100.000 - 500.000 tương tác/ngày)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Doanh nghiệp đang tăng trưởng nhanh:</strong> Hàng trăm nghìn lượt truy cập/ngày, có những khung giờ cao điểm (sale, sự kiện) khách vào ồ ạt.
+                </span>
+              </label>
+              <label for="q1_d" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q1_d" name="scale" value="[D] Quy mô lớn / Toàn quốc (> 1.000.000 truy cập/ngày)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[D] Quy mô lớn / Toàn quốc:</strong> Hơn 1 triệu lượt truy cập mỗi ngày, phục vụ liên tục không ngừng nghỉ.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">2</span>
+                Kỳ vọng về Độ ổn định & Gián đoạn bảo trì (SLA)
+              </h4>
+              <span class="text-xs text-emerald-400 font-mono">Availability</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Mức độ chấp nhận gián đoạn khi nâng cấp tính năng mới hoặc gặp sự cố bất khả kháng:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q2_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q2_a" name="sla" value="[A - Khuyến nghị] Chuẩn doanh nghiệp thông thường (Uptime 99.9%)" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Chuẩn doanh nghiệp thông thường (Uptime 99.9%):</strong> Chấp nhận dừng tối đa dưới 40 phút/tháng (chủ yếu cập nhật vào ban đêm 2h-4h sáng). Tự động sao lưu dữ liệu mỗi 6 tiếng.
+                </span>
+              </label>
+              <label for="q2_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q2_b" name="sla" value="[B] Nghiêm ngặt tuyệt đối 24/7 (Uptime 99.99%)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Cực kỳ nghiêm ngặt / 24/7 tuyệt đối (Uptime 99.99%):</strong> Không được dừng quá vài phút/tháng (Thanh toán, sàn giao dịch). Tự động chuyển máy chủ dự phòng ngay lập tức.
+                </span>
+              </label>
+              <label for="q2_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q2_c" name="sla" value="[C] Hệ thống nội bộ (Bảo trì ban đêm/cuối tuần)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Hệ thống nội bộ công ty:</strong> Buổi tối và cuối tuần không dùng nên nếu bảo trì vài tiếng cũng không ảnh hưởng kinh doanh.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">3</span>
+                Dữ liệu của Doanh nghiệp & Mức độ Nhạy cảm
+              </h4>
+              <span class="text-xs text-indigo-400 font-mono">Data Storage</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Các loại tài liệu và yêu cầu về an toàn dữ liệu:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q3_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q3_a" name="data_sec" value="[A - Khuyến nghị] Dữ liệu kinh doanh tiêu chuẩn + File ảnh/hóa đơn" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Dữ liệu kinh doanh tiêu chuẩn:</strong> Thông tin khách hàng, đơn hàng, hóa đơn, báo cáo doanh thu kèm file tài liệu ảnh/PDF. Số liệu tài chính không được phép sai lệch.
+                </span>
+              </label>
+              <label for="q3_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q3_b" name="data_sec" value="[B] Dữ liệu tối mật nội bộ (Lưu máy chủ riêng tại VN)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Dữ liệu nhạy cảm / Tối mật:</strong> Bắt buộc dữ liệu phải lưu tại máy chủ riêng của công ty ở Việt Nam, không đưa lên đám mây công cộng (Data Sovereignty).
+                </span>
+              </label>
+              <label for="q3_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q3_c" name="data_sec" value="[C] Dữ liệu nội dung lớn (Video, hình ảnh độ nét cao)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Dữ liệu nội dung lớn:</strong> Video, hình ảnh độ phân giải cao cần lưu trữ và truyền phát tốc độ cao cho khách xem.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">4</span>
+                Nhu cầu Ứng dụng Trí tuệ Nhân tạo (AI)
+              </h4>
+              <span class="text-xs text-purple-400 font-mono">AI Capability</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Mức độ áp dụng AI và chiến lược tiết kiệm chi phí:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q4_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q4_a" name="ai_need" value="[A - Khuyến nghị] Trợ lý AI thông minh nhưng Tiết kiệm 80% chi phí" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Có - Trợ lý AI thông minh nhưng Tiết kiệm chi phí:</strong> Cần AI trả lời khách 24/7, tóm tắt tài liệu, nhưng hệ thống phải tự định tuyến dòng AI giá rẻ cho câu dễ và AI cao cấp cho câu khó để giảm 70-80% chi phí.
+                </span>
+              </label>
+              <label for="q4_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q4_b" name="ai_need" value="[B] AI chạy riêng trên máy chủ công ty (Bảo mật tuyệt đối)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Có - Nhưng tuyệt đối Bảo mật nội bộ:</strong> Cần AI phân tích tài liệu nội bộ công ty, dữ liệu không được gửi qua bên thứ ba (chạy AI riêng trên máy chủ GPU công ty).
+                </span>
+              </label>
+              <label for="q4_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q4_c" name="ai_need" value="[C] Chưa cần AI lúc này" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Chưa cần AI lúc này:</strong> Hiện tại chỉ cần phần mềm quản lý, website hoặc ứng dụng thông thường.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">5</span>
+                Đăng nhập & Quản lý Phân quyền
+              </h4>
+              <span class="text-xs text-amber-400 font-mono">Auth & IAM</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Trải nghiệm đăng nhập của nhân viên và người dùng:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q5_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q5_a" name="auth" value="[A - Khuyến nghị] Đăng nhập 1 lần dùng cả ngày (24 giờ) + Phân quyền rõ ràng" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Đăng nhập 1 lần dùng cả ngày (24 giờ):</strong> Nhân viên đăng nhập đầu ngày, giữ phiên suốt 24h không bị văng ra ngoài. Phân quyền chặt chẽ (Nhân viên chỉ thấy việc của mình, Sếp xem toàn bộ).
+                </span>
+              </label>
+              <label for="q5_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q5_b" name="auth" value="[B] Đăng nhập nhanh qua mạng xã hội (Google / Facebook / Apple)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Đăng nhập nhanh qua Google / Facebook / Apple:</strong> Khách hàng bên ngoài vào mua sắm hoặc dùng dịch vụ không cần tạo mật khẩu rườm rà.
+                </span>
+              </label>
+              <label for="q5_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q5_c" name="auth" value="[C] Tích hợp tài khoản công ty có sẵn (Microsoft 365 / Google Workspace)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Tích hợp tài khoản công ty có sẵn:</strong> Dùng chung tài khoản Microsoft Office 365 hoặc Google Workspace của doanh nghiệp (Single Sign-On).
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">6</span>
+                Ngân sách Máy chủ & Hạ tầng Hàng tháng Dự kiến
+              </h4>
+              <span class="text-xs text-rose-400 font-mono">Hosting Budget</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Chi phí cố định hàng tháng doanh nghiệp dự kiến chi trả:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q6_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q6_a" name="budget" value="[A - Khuyến nghị] Tiết kiệm / Tối ưu ($40 - $80/tháng ~ 1-2 triệu VNĐ)" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Tiết kiệm / Tối ưu ($40 - $80/tháng ~ 1.000.000đ - 2.000.000đ):</strong> Sử dụng hạ tầng máy chủ ảo (VPS) chuyên dụng, cấu hình mạnh mẽ, toàn quyền sở hữu, không phát sinh chi phí ẩn.
+                </span>
+              </label>
+              <label for="q6_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q6_b" name="budget" value="[B] Đám mây tiêu chuẩn Quốc tế ($200 - $500/tháng ~ 5-12 triệu VNĐ)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Đám mây tiêu chuẩn Quốc tế ($200 - $500/tháng ~ 5.000.000đ - 12.000.000đ):</strong> Nền tảng Amazon AWS / Google Cloud, có sẵn dịch vụ quản lý tự động, thương hiệu quốc tế.
+                </span>
+              </label>
+              <label for="q6_c" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q6_c" name="budget" value="[C] Đầu tư máy chủ vật lý riêng đặt tại công ty/Data Center" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[C] Đầu tư máy chủ vật lý riêng tại công ty:</strong> Mua sắm phần cứng đặt tại văn phòng hoặc thuê chỗ đặt (Colocation) tại Trung tâm dữ liệu (Data Center).
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xs font-mono">7</span>
+                Thời hạn mong muốn Ra mắt (Timeline)
+              </h4>
+              <span class="text-xs text-cyan-400 font-mono">Roadmap</span>
+            </div>
+            <p class="text-xs text-slate-400 mb-4">Kế hoạch triển khai và thời gian kỳ vọng ra mắt:</p>
+            <div class="space-y-2.5 text-xs text-slate-300">
+              <label for="q7_a" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q7_a" name="timeline" value="[A - Khuyến nghị] Bản dùng thử (MVP) trong 2 - 3 tuần" checked class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-cyan-300">[A - Khuyến nghị] Ra mắt phiên bản dùng thử (MVP) trong 2 - 3 tuần:</strong> Chạy thử nghiệm các tính năng cốt lõi trước để lấy ý kiến khách hàng, sau đó nâng cấp dần.
+                </span>
+              </label>
+              <label for="q7_b" class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/50 hover:bg-slate-900/80 border border-slate-800/80 cursor-pointer transition-colors">
+                <input type="radio" id="q7_b" name="timeline" value="[B] Hoàn thiện trọn gói bài bản (1.5 - 3 tháng)" class="mt-0.5 accent-cyan-400">
+                <span>
+                  <strong class="text-slate-200">[B] Hoàn thiện trọn gói bài bản (1.5 - 3 tháng):</strong> Xây dựng đầy đủ toàn bộ tính năng và quy trình rồi mới chính thức vận hành.
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Additional Notes -->
+          <div class="card-glass p-6 rounded-2xl border border-slate-800">
+            <h4 class="text-sm font-bold text-slate-200 mb-2">Ghi chú bổ sung hoặc Bài toán đặc thù của bạn:</h4>
+            <textarea id="client_notes" rows="3" placeholder="Ví dụ: Công ty hiện có 15 nhân viên, đang dùng phần mềm kế toán X cần kết nối API, mong muốn triển khai thêm kênh Zalo OA..."
+              class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-200 text-xs focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
+          </div>
+        </div>
+
+        <!-- Submit Action Bar -->
+        <div class="p-6 rounded-2xl card-glass border border-cyan-500/20 text-center space-y-4">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button type="submit" id="btn-submit-intake"
+              class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 font-bold text-sm hover:from-cyan-400 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2">
+              <span>🚀 Gửi Yêu Cầu Khảo Sát (Mở Email Ứng Dụng)</span>
+            </button>
+            <button type="button" onclick="resetIntakeForm()"
+              class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 text-slate-300 font-semibold text-xs hover:bg-slate-700 transition-all">
+              Đặt lại mặc định Khuyến nghị
+            </button>
+          </div>
+          <p class="text-xs text-slate-500 font-mono">
+            * Khi bấm gửi, ứng dụng email trên máy của bạn sẽ tự động mở với nội dung đã được điền sẵn gửi tới <span class="text-cyan-400">chientrantrong89@gmail.com</span>
+          </p>
+
+          <!-- Status Toast / Fallback Box -->
+          <div id="intake-status" class="hidden mt-6 text-left p-4 rounded-xl bg-slate-900 border border-cyan-500/30 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-emerald-400 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                ✓ Đã kích hoạt mở ứng dụng Email!
+              </span>
+              <button type="button" id="btn-copy-intake" onclick="copyIntakeContent()"
+                class="px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 text-xs font-mono hover:bg-cyan-500/30 transition-all">
+                Sao chép nội dung
+              </button>
+            </div>
+            <p class="text-xs text-slate-400">
+              Nếu ứng dụng email chưa tự mở, bạn có thể sao chép nhanh toàn bộ nội dung bản khảo sát bên dưới và gửi trực tiếp tới <strong>chientrantrong89@gmail.com</strong>:
+            </p>
+            <textarea id="intake-copy-content" readonly rows="5"
+              class="w-full p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300 focus:outline-none"></textarea>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
   <!-- CONTACT & CTA -->
   <section id="contact" class="py-24 px-6 border-t border-slate-800/80 relative">
     <div class="max-w-3xl mx-auto text-center">
@@ -689,7 +1012,109 @@
         activeBtn.classList.add('text-cyan-400', 'bg-cyan-500/10', 'border-cyan-500/30');
       }
     }
-  </script>
 
+    // FORM 1: NON-TECH BUSINESS INTAKE HANDLER
+    function sendIntakeMail() {
+      const clientName = document.getElementById('client_name').value.trim() || 'Khách hàng';
+      const projectName = document.getElementById('project_name').value.trim() || 'Dự án mới';
+      const clientContact = document.getElementById('client_contact').value.trim() || 'Chưa cung cấp';
+      const clientNotes = document.getElementById('client_notes').value.trim() || 'Không có ghi chú thêm.';
+
+      function getRadioVal(name) {
+        const el = document.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : 'Chưa chọn';
+      }
+
+      const q1 = getRadioVal('scale');
+      const q2 = getRadioVal('sla');
+      const q3 = getRadioVal('data_sec');
+      const q4 = getRadioVal('ai_need');
+      const q5 = getRadioVal('auth');
+      const q6 = getRadioVal('budget');
+      const q7 = getRadioVal('timeline');
+
+      const subject = `[Khảo sát Kiến trúc] Yêu cầu từ ${clientName} - Dự án ${projectName}`;
+
+      const body = `Kính gửi Chuyên gia DevOps & AI Automation (chientrantrong89@gmail.com),
+
+Tôi gửi thông tin khảo sát nhu cầu kiến trúc hệ thống như sau:
+
+==================================================
+1. THÔNG TIN KHÁCH HÀNG & DỰ ÁN:
+• Người đại diện: ${clientName}
+• Dự án / Doanh nghiệp: ${projectName}
+• Email / SĐT liên hệ: ${clientContact}
+
+==================================================
+2. KẾT QUẢ KHẢO SÁT NHU CẦU (FORM 1 - NON-TECH):
+1. Số lượng người dùng & Giao dịch hàng ngày:
+   → ${q1}
+
+2. Kỳ vọng Độ ổn định & Gián đoạn bảo trì (SLA):
+   → ${q2}
+
+3. Dữ liệu của Doanh nghiệp & Mức độ an toàn:
+   → ${q3}
+
+4. Nhu cầu Ứng dụng Trí tuệ Nhân tạo (AI):
+   → ${q4}
+
+5. Đăng nhập & Quản lý Phân quyền:
+   → ${q5}
+
+6. Ngân sách Máy chủ hàng tháng:
+   → ${q6}
+
+7. Thời hạn mong muốn Ra mắt (Timeline):
+   → ${q7}
+
+==================================================
+3. GHI CHÚ BỔ SUNG / BÀI TOÁN ĐẶC THÙ:
+${clientNotes}
+
+==================================================
+(Bản khảo sát gửi từ website portfolio: devops.ai)`;
+
+      const mailtoUrl = `mailto:chientrantrong89@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Hiển thị khung sao chép dự phòng
+      const statusBox = document.getElementById('intake-status');
+      const copyTextarea = document.getElementById('intake-copy-content');
+      if (statusBox && copyTextarea) {
+        copyTextarea.value = body;
+        statusBox.classList.remove('hidden');
+        statusBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      // Kích hoạt mở email client
+      window.location.href = mailtoUrl;
+    }
+
+    function copyIntakeContent() {
+      const copyTextarea = document.getElementById('intake-copy-content');
+      if (!copyTextarea) return;
+      navigator.clipboard.writeText(copyTextarea.value).then(() => {
+        const copyBtn = document.getElementById('btn-copy-intake');
+        if (copyBtn) {
+          const originalText = copyBtn.innerText;
+          copyBtn.innerText = '✓ Đã sao chép thành công!';
+          copyBtn.classList.remove('bg-cyan-500/20', 'text-cyan-300');
+          copyBtn.classList.add('bg-emerald-500/20', 'text-emerald-300');
+          setTimeout(() => {
+            copyBtn.innerText = originalText;
+            copyBtn.classList.add('bg-cyan-500/20', 'text-cyan-300');
+            copyBtn.classList.remove('bg-emerald-500/20', 'text-emerald-300');
+          }, 3000);
+        }
+      });
+    }
+
+    function resetIntakeForm() {
+      const form = document.getElementById('intake-form');
+      if (form) form.reset();
+      const statusBox = document.getElementById('intake-status');
+      if (statusBox) statusBox.classList.add('hidden');
+    }
+  </script>
 </body>
 </html>
