@@ -76,7 +76,7 @@
 
   <!-- HERO SECTION -->
   <section class="pt-36 pb-20 px-6 relative overflow-hidden">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-2xl w-full h-80 bg-cyan-500/10 blur-[130px] rounded-full pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs text-slate-300 mb-8">
@@ -122,127 +122,387 @@
     </div>
   </section>
 
-  <!-- FEATURED CASE STUDY -->
+  <!-- FEATURED CASE STUDY (DEEP DIVE BLUEPRINT) -->
   <section id="case-study" class="py-20 px-6 border-t border-slate-800/80">
-    <div class="max-w-5xl mx-auto">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-semibold">CASE STUDY #01</span>
-        <span class="text-xs text-slate-500">Enterprise B2B Architecture</span>
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-semibold">CASE STUDY #01</span>
+          <span class="text-xs text-slate-400">Enterprise B2B Architecture Blueprint</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Uptime 99.9% · 10.000+ Tasks/Ngày
+        </div>
       </div>
-      <h2 class="text-3xl font-bold tracking-tight mb-4">
-        Hệ thống Tự động hóa Quy trình AI Chịu tải 10.000+ Tasks/Ngày
+
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+        Hệ thống Tự động hóa AI Chịu tải Cao & Kiến trúc Đa tầng Sẵn sàng Sản xuất
       </h2>
-      <p class="text-slate-400 max-w-3xl mb-10">
-        Tích hợp nền tảng Enterprise Lead Intelligence & Outreach. Xử lý triệt để bài toán thắt nút cổ chai Rate-Limit, rò rỉ dữ liệu và nguy cơ phụ thuộc nhà cung cấp AI.
+      <p class="text-slate-400 max-w-4xl mb-8 leading-relaxed text-sm sm:text-base">
+        Bản thiết kế kỹ thuật hoàn chỉnh giải quyết triệt để 5 bài toán cốt tử của doanh nghiệp: Lựa chọn triển khai On-Premise vs AWS, ma trận đánh đổi 6 tầng công nghệ, bàn giao chìa khóa trao tay trong 24 giờ với bảo mật Zero-Trust, tối ưu 80% chi phí token qua LiteLLM Proxy và giám sát vận hành bền bỉ 24/7.
       </p>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <!-- Vấn đề & Giải pháp -->
-        <div class="space-y-4">
-          <div class="p-6 rounded-2xl card-glass">
-            <h3 class="text-sm font-semibold text-rose-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-rose-500"></span> Thách thức bài toán
-            </h3>
-            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
-              <li>• Lưu lượng lớn 10k–50k requests/ngày dễ gây nghẽn HTTP 429 nếu gọi API ồ ạt.</li>
-              <li>• Chi phí gọi OpenAI GPT-4o quá cao nếu không biết lọc tầng xử lý.</li>
-              <li>• Rủi ro mất mát dữ liệu khách hàng nếu server tự khởi động lại giữa luồng.</li>
-            </ul>
+      <!-- INTERACTIVE TAB NAVIGATION BUTTONS -->
+      <div class="flex items-center gap-2 p-1.5 rounded-xl card-glass overflow-x-auto scrollbar-none mb-8 border border-slate-800 text-xs sm:text-sm font-medium">
+        <button onclick="switchTab('tab-onprem-aws')" id="btn-tab-onprem-aws" class="tab-btn px-4 py-2.5 rounded-lg transition-all text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 whitespace-nowrap">
+          🌐 1. On-Prem vs AWS
+        </button>
+        <button onclick="switchTab('tab-tradeoffs')" id="btn-tab-tradeoffs" class="tab-btn px-4 py-2.5 rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 whitespace-nowrap">
+          ⚖️ 2. Đánh đổi 6 Tầng
+        </button>
+        <button onclick="switchTab('tab-turnkey')" id="btn-tab-turnkey" class="tab-btn px-4 py-2.5 rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 whitespace-nowrap">
+          🔑 3. Trao tay 24h & Zero-Trust
+        </button>
+        <button onclick="switchTab('tab-litellm')" id="btn-tab-litellm" class="tab-btn px-4 py-2.5 rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 whitespace-nowrap">
+          🧠 4. LiteLLM Proxy & Tiết kiệm Token
+        </button>
+        <button onclick="switchTab('tab-monitoring')" id="btn-tab-monitoring" class="tab-btn px-4 py-2.5 rounded-lg transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/50 whitespace-nowrap">
+          📈 5. Giám sát & Uptime 99.9%
+        </button>
+      </div>
+
+      <!-- TAB CONTENT PANES -->
+      <div class="space-y-6">
+
+        <!-- TAB 1: ON-PREM VS AWS -->
+        <div id="pane-tab-onprem-aws" class="tab-pane space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- On-Premise Box -->
+            <div class="p-6 rounded-2xl card-glass border border-cyan-500/20 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-400 text-xs font-mono font-bold">PHƯƠNG ÁN 1: ON-PREMISE / PRIVATE VPS</span>
+                  <span class="text-xs font-mono text-emerald-400 font-bold">~$45 USD / tháng</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-100 mb-2">Tối ưu Chi phí & Toàn quyền Kiểm soát Dữ liệu</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Phù hợp SME, Agency và doanh nghiệp có yêu cầu bảo mật dữ liệu khách hàng không rời khỏi máy chủ nội bộ.
+                </p>
+                <div class="space-y-2 text-xs text-slate-300">
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-cyan-400 font-mono font-semibold">• Hạ tầng Máy chủ:</span> Cụm 3 nodes Hetzner/DigitalOcean (1 Master Node 4 vCPU/8GB + 2 Worker Nodes 8 vCPU/16GB).
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-cyan-400 font-mono font-semibold">• Công nghệ Cốt lõi:</span> Docker Compose v2, K3s, Caddy (Auto-SSL), Redis Sentinel, PostgreSQL 16.
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-cyan-400 font-mono font-semibold">• An toàn Mạng:</span> Cloudflare Zero Trust Tunnel + WireGuard VPN, không phơi mở port database ra Internet.
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-cyan-400 font-mono font-semibold">• Sao lưu Thảm họa:</span> Mã hóa pg_dump tự động đẩy lên Cloudflare R2 mỗi 6 giờ (Băng thông tải về miễn phí 100%).
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+                <span>Năng lực xử lý: <strong class="text-slate-200">300.000 tasks/tháng</strong></span>
+                <span class="text-emerald-400 font-mono">ROI tối đa</span>
+              </div>
+            </div>
+
+            <!-- AWS Cloud Box -->
+            <div class="p-6 rounded-2xl card-glass border border-indigo-500/20 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-400 text-xs font-mono font-bold">PHƯƠNG ÁN 2: AWS ENTERPRISE CLOUD</span>
+                  <span class="text-xs font-mono text-purple-400 font-bold">$250 – $600 USD / tháng</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-100 mb-2">Quy mô Doanh nghiệp & Tự động Co giãn Đa vùng (Multi-AZ)</h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Dành cho tập đoàn yêu cầu tự động co giãn không giới hạn và tuân thủ các chứng chỉ bảo mật quốc tế (SOC2, HIPAA).
+                </p>
+                <div class="space-y-2 text-xs text-slate-300">
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-indigo-400 font-mono font-semibold">• Container Không máy chủ:</span> AWS ECS Fargate tự động scale từ 2 lên 20 container trong 60 giây khi gặp bão traffic.
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-indigo-400 font-mono font-semibold">• Cổng & Bảo vệ Lớp 7:</span> Application Load Balancer (ALB) kết hợp AWS WAF chống DDoS, Bot traffic và Rate-limiting.
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-indigo-400 font-mono font-semibold">• Cơ sở dữ liệu Cao cấp:</span> Amazon RDS PostgreSQL Multi-AZ (Đồng bộ thời gian thực sang 2 Availability Zones, tự động failover &lt; 60s).
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                    <span class="text-indigo-400 font-mono font-semibold">• Quản trị Bí mật & IAM:</span> AWS Secrets Manager xoay vòng key tự động, AWS KMS mã hóa at-rest, IAM Roles (IRSA) không dùng static credentials.
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+                <span>Tự động hóa: <strong class="text-slate-200">Terraform / AWS CDK</strong></span>
+                <span class="text-indigo-400 font-mono">Zero Server Ops</span>
+              </div>
+            </div>
           </div>
 
+          <!-- Sơ đồ 6 Tầng Luồng Xử lý -->
           <div class="p-6 rounded-2xl card-glass">
-            <h3 class="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Giải pháp Kiến trúc
-            </h3>
-            <ul class="text-xs text-slate-300 space-y-2 leading-relaxed">
-              <li>• <strong>Token Bucket Rate Limiter:</strong> Điều tiết nhịp gọi API qua Redis.</li>
-              <li>• <strong>LiteLLM Gateway:</strong> Phân tầng mô hình (DeepSeek $0.2/M vs Sonnet) & Auto-failover.</li>
-              <li>• <strong>Event Backbone:</strong> RabbitMQ / Redis Streams chống rơi rớt task.</li>
-            </ul>
-          </div>
-
-          <div class="p-6 rounded-2xl card-glass">
-            <div class="text-xs text-slate-400 mb-1">Chi phí máy chủ ước tính</div>
-            <div class="text-2xl font-mono font-bold text-cyan-400">~$45 USD / tháng</div>
-            <p class="text-[11px] text-slate-500 mt-1">Cụm VPS Hetzner/DigitalOcean vận hành hơn 300.000 tasks/tháng.</p>
+            <h4 class="text-sm font-semibold text-slate-200 mb-4 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Luồng Kiến trúc 6 Tầng Xuyên suốt (Event-Driven Pipeline)
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-cyan-400 font-bold mb-1">Tầng 1: Ingestion Edge</div>
+                <div class="text-slate-300 font-sans text-xs">FastAPI + Caddy, HMAC-SHA256, phản hồi HTTP 202 trong &lt; 50ms.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-indigo-400 font-bold mb-1">Tầng 2: Buffer & Throttle</div>
+                <div class="text-slate-300 font-sans text-xs">Redis Token Bucket, Dead Letter Queue (DLQ), Exponential Backoff.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-purple-400 font-bold mb-1">Tầng 3: Orchestrator</div>
+                <div class="text-slate-300 font-sans text-xs">n8n Worker Mode / Temporal.io, Stateful Execution & Idempotency.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-emerald-400 font-bold mb-1">Tầng 4: AI Gateway</div>
+                <div class="text-slate-300 font-sans text-xs">LiteLLM Proxy, Semantic Cache, Zero Vendor Lock-in (DeepSeek/Claude).</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-amber-400 font-bold mb-1">Tầng 5: Persistence</div>
+                <div class="text-slate-300 font-sans text-xs">PostgreSQL + pgvector, theo dõi chi phí Token USD trên từng Lead.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-rose-400 font-bold mb-1">Tầng 6: Observability</div>
+                <div class="text-slate-300 font-sans text-xs">Prometheus + Grafana + Uptime Kuma, Alert tức thì qua Telegram bot.</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Sơ đồ 6 Tầng -->
-        <div class="lg:col-span-2 p-6 rounded-2xl card-glass flex flex-col justify-between">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold text-slate-200">Luồng Xử lý 6 Tầng (Event-Driven Architecture)</h3>
-            <span class="text-[11px] font-mono text-cyan-400">Production-Ready</span>
+        <!-- TAB 2: TRADEOFF MATRIX -->
+        <div id="pane-tab-tradeoffs" class="tab-pane hidden space-y-4">
+          <div class="p-6 rounded-2xl card-glass overflow-x-auto">
+            <h3 class="text-base font-bold text-slate-100 mb-2">Ma trận Đánh đổi Kỹ thuật (Technical Trade-off Matrix)</h3>
+            <p class="text-xs text-slate-400 mb-6">Mỗi quyết định chọn công nghệ đều được cân nhắc kỹ lưỡng giữa hiệu năng, độ phức tạp và chi phí vận hành.</p>
+            
+            <table class="w-full text-left text-xs text-slate-300 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400 font-mono">
+                  <th class="py-3 px-3">Phân tầng</th>
+                  <th class="py-3 px-3">Công nghệ Lựa chọn</th>
+                  <th class="py-3 px-3">Giải pháp Thay thế</th>
+                  <th class="py-3 px-3">Lý do Chọn & Phân tích Đánh đổi (Trade-off)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/60 leading-relaxed">
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-cyan-400">1. Edge Gateway</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">Caddy + FastAPI</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">Nginx, Kong</td>
+                  <td class="py-3 px-3">Caddy cực nhẹ (&lt; 50MB RAM), tự động cấp SSL. FastAPI async xử lý 50.000 req/s với độ trễ &lt; 50ms. Đánh đổi: Cần script scale pod thủ công so với Cloud Load Balancer.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-indigo-400">2. Buffer & Throttle</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">Redis Token Bucket + RabbitMQ</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">Apache Kafka, SQS</td>
+                  <td class="py-3 px-3">Độ trễ microsecond, Token Bucket native qua Lua script chặn 100% mã lỗi HTTP 429 từ CRM. Đánh đổi: Với 10k-50k req/ngày, Kafka quá cồng kềnh và ngốn RAM lãng phí.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-purple-400">3. Workflow Core</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">n8n Worker Mode / Temporal</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">AWS Step Functions</td>
+                  <td class="py-3 px-3">n8n cho phép team nghiệp vụ xem trực quan luồng chạy, dựng workflow nhanh gấp 5 lần. Temporal bảo đảm tính toàn vẹn trạng thái stateful. Đánh đổi: Phải tự bảo trì worker pool.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-emerald-400">4. AI Gateway</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">LiteLLM Proxy</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">Gọi trực tiếp SDK</td>
+                  <td class="py-3 px-3">Đổi model không cần sửa code ứng dụng, auto-failover sang nhà cung cấp phụ khi OpenAI/Claude lỗi, giảm 80% chi phí. Đánh đổi: Thêm 1 network hop nhỏ (~10ms).</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-amber-400">5. Storage & Vectors</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">PostgreSQL 16 + pgvector</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">Mongo + Pinecone</td>
+                  <td class="py-3 px-3">Chuẩn ACID tuyệt đối, lưu trữ cả dữ liệu quan hệ lẫn vector embeddings trên cùng 1 database, giảm chi phí thêm dịch vụ ngoài. Đánh đổi: Cần tinh chỉnh B-Tree/HNSW index.</td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-3 font-semibold text-rose-400">6. Giám sát & Alert</td>
+                  <td class="py-3 px-3 font-mono font-medium text-slate-200">Prometheus + Grafana + Kuma</td>
+                  <td class="py-3 px-3 text-slate-500 font-mono">Datadog, New Relic</td>
+                  <td class="py-3 px-3">Open-source 100%, bảo mật toàn vẹn dữ liệu hệ thống, cảnh báo qua Telegram tức thì trong &lt; 30s. Đánh đổi: Tiêu tốn khoảng 2GB RAM máy chủ để lưu metrics.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
 
-          <div class="space-y-3 font-mono text-xs">
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">1</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Ingestion & Gateway</div>
-                  <div class="text-[11px] text-slate-400 font-sans">FastAPI + Caddy, HMAC-SHA256, phản hồi 202 trong &lt;50ms</div>
-                </div>
+        <!-- TAB 3: TURNKEY 24H & ZERO-TRUST -->
+        <div id="pane-tab-turnkey" class="tab-pane hidden space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 24h Turnkey -->
+            <div class="p-6 rounded-2xl card-glass border border-cyan-500/20">
+              <div class="flex items-center gap-2 text-cyan-400 font-bold mb-3">
+                <span class="text-xl">⚡</span>
+                <h3 class="text-base text-slate-100">Bàn Giao Chìa Khóa Trao Tay Trong 24 Giờ</h3>
               </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Edge</span>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Hệ thống được đóng gói thành các khối tiêu chuẩn giúp khách hàng sở hữu cụm máy chủ sẵn sàng vận hành chỉ trong 1 ngày làm việc:
+              </p>
+              <ul class="text-xs text-slate-300 space-y-2.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">1.</span>
+                  <span><strong>Ansible Playbook Tự động 15 Phút:</strong> 1 lệnh duy nhất cấu hình toàn bộ máy chủ trắng Ubuntu 24.04: cài Docker, tối ưu Linux Kernel, kích hoạt Swap 4GB, cấu hình UFW Firewall và Fail2ban.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">2.</span>
+                  <span><strong>Golden Docker Compose Stack:</strong> File `.env.example` chuẩn hóa 100% tham số, khởi động toàn bộ cụm 8 dịch vụ đã gắn kết network và health checks trong 2 phút.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cyan-400 font-bold">3.</span>
+                  <span><strong>Thư viện Kịch bản Golden Workflows:</strong> Bộ template n8n/Dify hoàn chỉnh (xác thực HMAC, điều tiết Token Bucket, xử lý Dead Letter Queue) chỉ cần import là chạy ngay.</span>
+                </li>
+              </ul>
             </div>
 
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">2</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Buffer & Message Queue</div>
-                  <div class="text-[11px] text-slate-400 font-sans">Redis Token Bucket, Dead Letter Queue (DLQ), Exponential Backoff</div>
-                </div>
+            <!-- Zero-Trust Security -->
+            <div class="p-6 rounded-2xl card-glass border border-emerald-500/20">
+              <div class="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+                <span class="text-xl">🛡️</span>
+                <h3 class="text-base text-slate-100">Kiến trúc Giới hạn Đối tượng & Bảo mật Zero-Trust</h3>
               </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Buffer</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">3</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Workflow Orchestrator</div>
-                  <div class="text-[11px] text-slate-400 font-sans">n8n Worker Mode / Temporal.io, Stateful Execution & Idempotency</div>
-                </div>
-              </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Core</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">4</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Pluggable AI Gateway</div>
-                  <div class="text-[11px] text-slate-400 font-sans">LiteLLM Proxy, Semantic Cache, Zero Vendor Lock-in (DeepSeek/Claude)</div>
-                </div>
-              </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">AI</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">5</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Persistence & Audit Log</div>
-                  <div class="text-[11px] text-slate-400 font-sans">PostgreSQL + pgvector, theo dõi chi phí Token USD trên từng Lead</div>
-                </div>
-              </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Storage</span>
-            </div>
-
-            <div class="p-3 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <span class="w-6 h-6 rounded bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold">6</span>
-                <div>
-                  <div class="text-slate-200 font-semibold">Observability & Alerts</div>
-                  <div class="text-[11px] text-slate-400 font-sans">Prometheus + Grafana + Uptime Kuma, Alert tức thì qua Telegram bot</div>
-                </div>
-              </div>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Ops</span>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                Thiết lập vành đai phòng thủ nhiều lớp bảo vệ toàn diện tài sản số của doanh nghiệp:
+              </p>
+              <ul class="text-xs text-slate-300 space-y-2.5">
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold">•</span>
+                  <span><strong>Ẩn danh Hoàn toàn Cổng Nội bộ:</strong> Đóng 100% cổng database (5432), redis (6379), n8n backend (5678) khỏi Internet công cộng.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold">•</span>
+                  <span><strong>Cloudflare Zero Trust Access:</strong> Quản trị viên chỉ có thể truy cập Dashboard qua đường hầm mã hóa (Tunnels) với xác thực 2FA OTP qua Email công ty.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold">•</span>
+                  <span><strong>Xác thực Webhook HMAC-SHA256:</strong> Mọi request bên ngoài gửi tới bắt buộc có chữ ký mật mã; tự động drop ngay tại Gateway nếu chữ ký sai hoặc timestamp quá 5 phút.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-400 font-bold">•</span>
+                  <span><strong>Cô lập Quyền Hạn AI Agent (Least Privilege):</strong> Agent chỉ được cấp quyền đọc dữ liệu qua MCP tools, tuyệt đối không có quyền xóa database hay thực thi lệnh shell hệ thống.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <!-- TAB 4: LITELLM & COST OPTIMIZATION -->
+        <div id="pane-tab-litellm" class="tab-pane hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2 p-6 rounded-2xl card-glass">
+              <h3 class="text-base font-bold text-slate-100 mb-2">Chiến lược LiteLLM Proxy & Tiết kiệm 83% Chi phí Token</h3>
+              <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                LiteLLM hoạt động như một AI Load Balancer thông minh đặt trước toàn bộ các mô hình, tự động định tuyến thông minh theo độ phức tạp của bài toán.
+              </p>
+
+              <div class="space-y-4 text-xs">
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-cyan-400 font-mono">1. Phân tầng Mô hình (Model Tiering)</span>
+                    <span class="text-emerald-400 font-bold font-mono">-83% Hóa đơn API</span>
+                  </div>
+                  <p class="text-slate-300 leading-relaxed">
+                    • <strong>80% tác vụ nhẹ</strong> (Phân loại lead, trích xuất thực thể, kiểm tra điều kiện): Định tuyến sang <strong>DeepSeek-V3</strong> ($0.27/1M token) hoặc <strong>Gemini 1.5 Flash</strong> ($0.075/1M token).<br>
+                    • <strong>20% tác vụ quan trọng</strong> (Soạn nội dung cá nhân hóa cao cấp, lập luận logic phức tạp): Định tuyến sang <strong>Claude 3.5 Sonnet</strong> ($3/1M token).<br>
+                    • <em>So sánh:</em> 10k tasks/ngày chạy thuần GPT-4o tiêu tốn <strong>~$2.250 USD/tháng</strong> $\rightarrow$ qua LiteLLM phân tầng chỉ tốn <strong>~$367 USD/tháng</strong>!
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-indigo-400 font-mono">2. Semantic Caching trong Redis</span>
+                    <span class="text-cyan-400 font-bold font-mono">&lt; 15ms Phản hồi</span>
+                  </div>
+                  <p class="text-slate-300 leading-relaxed">
+                    Tích hợp vector similarity trong Redis để nhận diện các câu hỏi hoặc mẫu dữ liệu lặp lại. Phản hồi ngay kết quả trong cache với chi phí 0 USD và độ trễ dưới 15ms.
+                  </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-purple-400 font-mono">3. Tự Động Chuyển Vùng (Auto-Failover)</span>
+                    <span class="text-purple-400 font-bold font-mono">Zero Downtime</span>
+                  </div>
+                  <p class="text-slate-300 leading-relaxed">
+                    Nếu nhà cung cấp AI chính (Anthropic/OpenAI) gặp sự cố HTTP 500 hoặc chạm Rate Limit 429, LiteLLM tự động chuyển mạch sang mô hình dự phòng trong &lt; 500ms mà không làm đứt luồng ứng dụng.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- PII Masking Box -->
+            <div class="p-6 rounded-2xl card-glass border border-emerald-500/20 flex flex-col justify-between">
+              <div>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold mb-4 inline-block">BẢO VỆ DỮ LIỆU KHÁCH HÀNG</span>
+                <h4 class="text-sm font-bold text-slate-100 mb-2">Khử trùng PII & An toàn Tuyệt đối</h4>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Ngăn chặn rò rỉ dữ liệu cá nhân (PII) sang các đám mây AI công cộng qua bộ lọc tiền xử lý tự động:
+                </p>
+                <div class="space-y-2 text-xs font-mono">
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                    SĐT: 0912.345.xxx <br><span class="text-cyan-400">↳ &lt;PHONE_MASKED&gt;</span>
+                  </div>
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                    Email: user@corp.vn <br><span class="text-cyan-400">↳ &lt;EMAIL_MASKED&gt;</span>
+                  </div>
+                  <div class="p-2 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                    Số CCCD / Tài khoản <br><span class="text-cyan-400">↳ &lt;ID_MASKED&gt;</span>
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-emerald-400 mt-4 pt-3 border-t border-slate-800">
+                ✓ Tuân thủ quy định bảo vệ dữ liệu cá nhân & cam kết không train AI trên prompt khách.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: MONITORING & UPTIME 99.9% -->
+        <div id="pane-tab-monitoring" class="tab-pane hidden space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Observability Stack -->
+            <div class="p-6 rounded-2xl card-glass">
+              <div class="flex items-center gap-2 text-rose-400 font-bold mb-3">
+                <span class="text-xl">📡</span>
+                <h3 class="text-base text-slate-100">Hạ tầng Giám sát Đa tầng (Observability Stack)</h3>
+              </div>
+              <ul class="text-xs text-slate-300 space-y-3 leading-relaxed">
+                <li class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <strong class="text-cyan-400">Node Exporter & cAdvisor:</strong> Theo dõi thời gian thực CPU, RAM, Disk I/O và Network Drop của từng container độc lập, phát hiện sớm nguy cơ rò rỉ bộ nhớ.
+                </li>
+                <li class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <strong class="text-indigo-400">Prometheus TSDB & Grafana:</strong> Trực quan hóa các chỉ số kỹ thuật: Tần suất request/giây, độ trễ phân vị p95/p99, và biểu đồ chi phí tiêu hao USD từng giờ.
+                </li>
+                <li class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                  <strong class="text-rose-400">Uptime Kuma & Telegram Alert:</strong> Ping liên tục mỗi 30 giây vào probe `/health/ready`. Tự động bắn thông báo khẩn cấp qua Telegram Bot trong <strong>&lt; 30 giây</strong> khi Error Rate &gt; 1.5% hoặc container bị OOM.
+                </li>
+              </ul>
+            </div>
+
+            <!-- 99.9% Uptime Guarantee -->
+            <div class="p-6 rounded-2xl card-glass border border-cyan-500/20 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-emerald-400 font-bold mb-3">
+                  <span class="text-xl">⏱️</span>
+                  <h3 class="text-base text-slate-100">Bảo Đảm Uptime 99.9% (Downtime &lt; 43 phút / tháng)</h3>
+                </div>
+                <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                  <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                    <strong class="text-emerald-400">1. Kiến trúc Hàng đợi Tách biệt (Decoupled Queue):</strong> Ingestion Gateway nhận webhook đưa thẳng vào Redis Queue. Dù Worker có đang restart thì đối tác vẫn luôn nhận mã phản hồi HTTP 202 thành công, không bao giờ rơi rớt dữ liệu.
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                    <strong class="text-emerald-400">2. Container Tự phục hồi (Auto-Healing):</strong> Cấu hình Docker Healthcheck kết hợp `restart: always`. Khi một dịch vụ bị deadlock hoặc crash, daemon tự động khởi tạo lại container mới trong 3 giây.
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                    <strong class="text-emerald-400">3. Phục hồi Thảm họa & Backup (Disaster Recovery):</strong> Snapshot cơ sở dữ liệu tự động mã hóa đẩy lên Cloudflare R2 mỗi 6 tiếng. Chỉ số RPO &lt; 15 phút, RTO &lt; 30 phút để khôi phục toàn bộ cụm máy chủ mới.
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-400">Cam kết SLA:</span>
+                <span class="text-cyan-400 font-bold">99.9% High Availability</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -383,7 +643,7 @@
       </p>
 
       <div class="inline-flex flex-col sm:flex-row items-center gap-4 p-2 rounded-2xl card-glass max-w-md mx-auto">
-        <a href="mailto:contact.devops.ai@gmail.com" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all">
+        <a href="mailto:chientrantrong89@gmail.com" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cyan-500 text-slate-950 font-semibold text-sm hover:bg-cyan-400 transition-all">
           Gửi Email Trao Đổi
         </a>
         <a href="https://t.me/" target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800/80 text-slate-200 font-semibold text-sm hover:bg-slate-700 transition-all">
@@ -391,11 +651,45 @@
         </a>
       </div>
 
+      <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 font-mono text-xs text-slate-300">
+        <span class="text-cyan-400">Direct Email:</span>
+        <a href="mailto:chientrantrong89@gmail.com" class="text-cyan-400 hover:underline">chientrantrong89@gmail.com</a>
+      </div>
+
       <div class="mt-12 text-xs text-slate-600 font-mono">
         © 2026 DevOps & AI Automation Specialist. Hosted with GitHub Pages.
       </div>
     </div>
   </section>
+
+  <!-- INTERACTIVE TAB CONTROLLER SCRIPT -->
+  <script>
+    function switchTab(tabId) {
+      // Ẩn tất cả panes
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => pane.classList.add('hidden'));
+
+      // Bỏ active của tất cả buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('text-cyan-400', 'bg-cyan-500/10', 'border-cyan-500/30');
+        btn.classList.add('text-slate-400');
+      });
+
+      // Hiện pane được chọn
+      const activePane = document.getElementById('pane-' + tabId);
+      if (activePane) {
+        activePane.classList.remove('hidden');
+      }
+
+      // Kích hoạt button được chọn
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('text-cyan-400', 'bg-cyan-500/10', 'border-cyan-500/30');
+      }
+    }
+  </script>
 
 </body>
 </html>
